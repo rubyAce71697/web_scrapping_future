@@ -1,0 +1,23 @@
+from bs4 import BeautifulSoup
+import urllib2
+url = "http://www.google.com"
+content = urllib2.urlopen(url).read()
+soup = BeautifulSoup(content)
+print(soup.prettify())
+print soup.title
+print soup.title.name
+print soup.title.string
+print soup.title.parent.name
+print soup.p
+print soup.p['style']
+for link in soup.a:
+	print link
+	
+print soup.a
+for link in  soup.find_all('a'):
+	print link
+	
+print soup.find('source=homepage')
+
+for link in soup.find_all('a'):
+	print(link.get('href'))

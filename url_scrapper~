@@ -1,0 +1,9 @@
+from bs4 import BeautifulSoup
+
+import requests
+url = raw_input("Enter a url to extract links from: ")
+r = requests.get("http://" + url)
+data = r.text
+soup = BeautifulSoup(data)
+from link in soup.find_all('a'):
+	print(link.get('href'))
