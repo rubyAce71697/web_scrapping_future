@@ -1,0 +1,22 @@
+from bs4 import BeautifulSoup
+import urllib2
+import re
+url = "http://www.espncricinfo.com"
+content = urllib2.urlopen(url).read()
+soup = BeautifulSoup(content)
+#data =  soup.prettify()
+#print data
+#print soup.get_text()
+
+#for link in soup.find_all('span'):
+
+#	print link
+str = re.escape('</span>')
+print str
+#print str
+
+
+
+list =  [ x for x in soup.find_all('span') if re.escape(x) == str]
+print list
+
